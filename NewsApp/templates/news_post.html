@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body style="background-color: #232323">
+  <!-- side nav bar -->
+  <div class="sidenav">
+    <img src="{% static 'images/ad.png' %}" style="width:160px;height:50px;">
+    <a href="{% url 'news_get' %}">News</a>
+    <a href="#services">Videos</a>
+    <a href="#clients">Stocks</a>
+    <a href="#contact">Suggestions</a>
+    <a href="{% url 'logout' %}">Logout</a>
+  </div>
+  <!-- Top nav bar -->
+  <div class="topnav">
+    <a >{{ user.username }}</a>
+  </div>
+
+  <div class="newsMain">
+  	<h1><b>News Portal</b></h1>
+  	<form  action='{%url "news_post"%}' method='POST' enctype="multipart/form-data" autocomplete="off">
+		<input type="Title" name="Title" placeholder="Enter here News Title" required style="border-width: 3px;height: 40px;width: 500px;
+                                                                    padding: 8px 8px 8px 7px;"><br><br><br>
+		<textarea type="Description" name="Description" placeholder="Enter here News Description" required 
+                                                                         style="border-width: 2px;
+                                                                          height: 100px;
+                                                                          width: 500px;
+                                                                          padding: 8px 6px 20px 10px;"
+                                                                      ></textarea><br><br><br>
+		<label for="img">Select image:</label><input type="file" id="img" name="Image" accept="image/*"><br><br><br>
+		<input type="SUBMIT" style="font-size: 110%;height: 40px;width: 80px;/* padding: 20px; */font-style: italic;font-weight: bold;background-color: orange;">
+	</form>
+  </div>
+</body>
+</html> 
